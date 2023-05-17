@@ -1,0 +1,45 @@
+05/16/2023 17:27:42 - WARNING - __main__ -   Process rank: -1, device: cuda, n_gpu: 1, distributed training: False, 16-bits training: False
+05/16/2023 17:27:56 - INFO - __main__ -   Training/evaluation parameters Namespace(train_data_file='/scratch/rg4357/dl/dialogrepo/examples/input_data/train_GOT.txt', output_dir='/scratch/rg4357/dl/dialogrepo/Output_gpt2_large_1024_block', eval_data_file='/scratch/rg4357/dl/dialogrepo/examples/input_data/val_GOT.txt', model_type='gpt2-large', model_name_or_path='gpt2-large', mlm=False, mlm_probability=0.15, config_name='', tokenizer_name='', cache_dir='', block_size=1024, do_train=True, do_eval=True, evaluate_during_training=False, do_lower_case=False, per_gpu_train_batch_size=4, per_gpu_eval_batch_size=4, gradient_accumulation_steps=1, learning_rate=5e-05, weight_decay=0.0, adam_epsilon=1e-08, max_grad_norm=1.0, num_train_epochs=10.0, max_steps=-1, warmup_steps=0, logging_steps=2500, save_steps=200, save_total_limit=2, eval_all_checkpoints=False, no_cuda=False, overwrite_output_dir=True, overwrite_cache=False, seed=17, fp16=False, fp16_opt_level='O1', local_rank=-1, server_ip='', server_port='', n_gpu=1, device=device(type='cuda'))
+05/16/2023 17:27:56 - INFO - __main__ -   Creating features from dataset file at /scratch/rg4357/dl/dialogrepo/examples/input_data
+05/16/2023 17:28:04 - INFO - __main__ -   Saving features into cached file /scratch/rg4357/dl/dialogrepo/examples/input_data/gpt2-large_cached_lm_1024_train_GOT.txt
+/home/rg4357/.local/lib/python3.10/site-packages/transformers/optimization.py:407: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+05/16/2023 17:28:04 - INFO - __main__ -   ***** Running training *****
+05/16/2023 17:28:04 - INFO - __main__ -     Num examples = 2336
+05/16/2023 17:28:04 - INFO - __main__ -     Num Epochs = 10
+05/16/2023 17:28:04 - INFO - __main__ -     Instantaneous batch size per GPU = 4
+05/16/2023 17:28:04 - INFO - __main__ -     Total train batch size (w. parallel, distributed & accumulation) = 4
+05/16/2023 17:28:04 - INFO - __main__ -     Gradient Accumulation steps = 1
+05/16/2023 17:28:04 - INFO - __main__ -     Total optimization steps = 5840
+05/16/2023 17:28:04 - INFO - __main__ -     Block size = 1024
+Epoch:   0%|          | 0/10 [00:00<?, ?it/s]
+Iteration:   0%|          | 0/584 [00:00<?, ?it/s][AIteration:   0%|          | 0/584 [00:02<?, ?it/s]
+Epoch:   0%|          | 0/10 [00:02<?, ?it/s]
+Traceback (most recent call last):
+  File "/scratch/rg4357/dl/dialogrepo/examples/run_lm_finetuning.py", line 596, in <module>
+    main()
+  File "/scratch/rg4357/dl/dialogrepo/examples/run_lm_finetuning.py", line 548, in main
+    global_step, tr_loss = train(args, train_dataset, model, tokenizer)
+  File "/scratch/rg4357/dl/dialogrepo/examples/run_lm_finetuning.py", line 263, in train
+    outputs = model(inputs, masked_lm_labels=labels) if args.mlm else model(inputs, labels=labels)
+  File "/ext3/miniconda3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/rg4357/.local/lib/python3.10/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 1076, in forward
+    transformer_outputs = self.transformer(
+  File "/ext3/miniconda3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/rg4357/.local/lib/python3.10/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 900, in forward
+    outputs = block(
+  File "/ext3/miniconda3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/rg4357/.local/lib/python3.10/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 427, in forward
+    feed_forward_hidden_states = self.mlp(hidden_states)
+  File "/ext3/miniconda3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/rg4357/.local/lib/python3.10/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 355, in forward
+    hidden_states = self.act(hidden_states)
+  File "/ext3/miniconda3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/rg4357/.local/lib/python3.10/site-packages/transformers/activations.py", line 56, in forward
+    return 0.5 * input * (1.0 + torch.tanh(math.sqrt(2.0 / math.pi) * (input + 0.044715 * torch.pow(input, 3.0))))
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 80.00 MiB (GPU 0; 44.49 GiB total capacity; 43.60 GiB already allocated; 11.12 MiB free; 43.73 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

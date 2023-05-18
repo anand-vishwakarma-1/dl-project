@@ -44,9 +44,9 @@ python run_lm_finetuning.py
     --model_type=gpt2 
     --model_name_or_path=gpt2 
     --do_train 
-    --train_data_file="/scratch/rg4357/dl/dialogrepo/examples/input_data/train_GOT.txt" 
+    --train_data_file="/dl/dialogrepo/examples/input_data/train_GOT.txt" 
     --do_eval 
-    --eval_data_file="/scratch/rg4357/dl/dialogrepo/examples/input_data/val_GOT.txt" 
+    --eval_data_file="/dl/dialogrepo/examples/input_data/val_GOT.txt" 
     --overwrite_output_dir 
     --num_train_epochs=30 
     --block_size=1024 
@@ -58,7 +58,7 @@ Fine-tune a default GPT-2 model with training data train_GOT.txt and evaluation 
 ```
 python run_generation.py 
     --model_type=gpt2 
-    --model_name_or_path="/scratch/rg4357/dl/dialogrepo/Output_1024_block_extended/FT_512_select_dialogues/checkpoint-4000/" 
+    --model_name_or_path="/dl/dialogrepo/Output_1024_block_extended/FT_512_select_dialogues/checkpoint-4000/" 
     --length=300
 ```
 Use a fine-tuned GPT-2 model to generate a text of length 300.

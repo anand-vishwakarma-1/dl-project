@@ -93,6 +93,7 @@ python synthesize.py
 Use [step_2-3.ipynb](step_2-3.ipynb) on get final result using a sample [prompt](prompt1.txt) provided which is generated from our step 1.
 
 ## Final sample
+[sample.mp4](sample.mp4)
 <video width="320" height="240" controls>
   <source src="sample.mp4" type="video/mp4">
 </video>

@@ -62,3 +62,60 @@ python run_generation.py
     --length=300
 ```
 Use a fine-tuned GPT-2 model to generate a text of length 300.
+#
+# DC-TTS
+Environment Requirements
+```
+tensorlfow=1.15
+cudatoolkit=10.0
+cudnn=7.6
+```
+Change hyperparameters.py file to set dataset and model paths
+
+To create custom dataset from captioned video use [data_prep.py](data_prep.py), change output path and json prefixes accordingly.<br>
+Sample raw data and processed data can be found in the drive link provided above.
+
+Pre-process custom dataset
+```
+python prepo.py
+```
+Train model
+```
+python train.py 1
+python train.py 2
+```
+Get sample outputs
+```
+python synthesize.py
+```
+#
+# Final results
+Use [step_2-3.ipynb](step_2-3.ipynb) on get final result using a sample [prompt](prompt1.txt) provided which is generated from our step 1.
+
+## Final sample
+![](sample.mp4)
+
+# Github links referred
+[Kyubyong/dc_tts](https://github.com/Kyubyong/dc_tts)<br>
+[Rudrabha/Wav2Lip](https://github.com/Rudrabha/Wav2Lip)
+
+# Citation
+```
+@inproceedings{10.1145/3394171.3413532,
+author = {Prajwal, K R and Mukhopadhyay, Rudrabha and Namboodiri, Vinay P. and Jawahar, C.V.},
+title = {A Lip Sync Expert Is All You Need for Speech to Lip Generation In the Wild},
+year = {2020},
+isbn = {9781450379885},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3394171.3413532},
+doi = {10.1145/3394171.3413532},
+booktitle = {Proceedings of the 28th ACM International Conference on Multimedia},
+pages = {484–492},
+numpages = {9},
+keywords = {lip sync, talking face generation, video generation},
+location = {Seattle, WA, USA},
+series = {MM '20}
+}
+```
+

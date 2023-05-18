@@ -79,7 +79,7 @@ Pre-process custom dataset
 ```
 python prepo.py
 ```
-Train model
+Train model, get pretrained model trained on LJ speech from [this](https://www.dropbox.com/s/1oyipstjxh2n5wo/LJ_logdir.tar?dl=0) link. 
 ```
 python train.py 1
 python train.py 2
@@ -93,7 +93,9 @@ python synthesize.py
 Use [step_2-3.ipynb](step_2-3.ipynb) on get final result using a sample [prompt](prompt1.txt) provided which is generated from our step 1.
 
 ## Final sample
-![](sample.mp4)
+<video width="320" height="240" controls>
+  <source src="sample.mp4" type="video/mp4">
+</video>
 
 # Github links referred
 [Kyubyong/dc_tts](https://github.com/Kyubyong/dc_tts)<br>
